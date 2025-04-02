@@ -1,0 +1,54 @@
+# Node modules (dependencies)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Environment variables (secret keys, database URLs, etc.)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+debug.log
+error.log
+server.log
+
+# Build/Compiled files
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.cache
+tmp/
+.cache/
+.DS_Store
+Thumbs.db
+
+# VSCode settings (if using VSCode)
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Other IDE-specific files
+.idea/
+*.swp
+*.swo
+
+# Process manager (PM2) logs
+pm2.log
+pm2.pid
+
+# Coverage reports (if using Jest or testing tools)
+coverage/
+.nyc_output/
