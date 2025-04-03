@@ -5,6 +5,7 @@ import bodyparser from "express";
 import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/connectDB.js";
 import userRouter from "./Routes/user.route.js";
+import productRouter from "./Routes/product.routes.js";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 
 // ✅ User Routes
 app.use("/api/user", userRouter);
+app.use("/api/products", productRouter);
 
 // ✅ Start Server
 app.listen(process.env.PORT || 3000, async () => {

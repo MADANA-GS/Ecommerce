@@ -2,6 +2,7 @@ import User from "../Models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+//for registering a new user
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -71,6 +72,7 @@ export const register = async (req, res) => {
   }
 };
 
+//for logging in a user
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -137,5 +139,20 @@ export const login = async (req, res) => {
       success: false,
       message: "Server error while user logging in",
     });
+  }
+};
+
+//for getting all users
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().sort({ createdAt: -1 });
+    return res.status(200).json({
+      success: true,
+      message: "Users fetched successfully",
+      users,
+    });
+  } catch (error) {
+    console.error("Error in getAllUsers:", error);
+    return res.status(500).json({});
   }
 };
