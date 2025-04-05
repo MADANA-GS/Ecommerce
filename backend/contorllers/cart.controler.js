@@ -11,7 +11,8 @@ export const getCart = async (req, res) => {
   try {
     const userId = req.userId;
 
-    const cart = await Cart.findOne({ user: userId }).populate("products.product");
+    const cart = await Cart.findOne({ user: userId })
+      .populate("products.product");
 
     if (!cart) {
       return res.status(404).json({
