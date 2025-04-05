@@ -75,3 +75,61 @@ export const deleteAddress = async (req, res) => {
     });
   }
 };
+
+export const updateAddress = async (req, res) => {
+  const { id, fullName, phone, pincode, address, city, state } = req.body;
+  try {
+    const updatedAddress = await Address.findByIdAndUpdate(
+      id,
+      {
+        fullName,
+        phone,
+        pincode,
+        address,
+        city,
+        state,
+      },
+      { new: true }
+    );
+    if (!updatedAddress) {
+      return res.status(404).json({
+        success: false,
+        message: "Address not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Address updated successfully",
+      data: updatedAddress,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error updating address",
+      error: error.message,
+    });
+  }
+};
+export const getSingleAddress = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const address = await Address.findById(id);
+    if (!address) {
+      return res.status(404).json({
+        success: false,
+        message: "Address not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Address fetched successfully",
+      data: address,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error fetching address",
+      error: error.message,
+    });
+  }
+};
