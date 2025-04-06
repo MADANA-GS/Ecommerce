@@ -14,7 +14,14 @@ dotenv.config();
 const app = express();
 
 // ✅ Middleware Order Matters!
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json()); // Parses JSON request body
 app.use(bodyparser.json()); // Parses JSON request body
 app.use(express.urlencoded({ extended: true })); // Parses form data

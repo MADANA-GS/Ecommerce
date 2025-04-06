@@ -27,6 +27,10 @@ const productSchema = new mongoose.Schema(
         "Beauty",
         "Sports",
         "Other",
+        "Accessories",
+        "Wearables",
+        "Cameras",
+        "Gaming"
       ],
     },
     stock: {
