@@ -1,11 +1,11 @@
 import React from 'react'
 
-const App = () => {
+const Adress = () => {
   return (
     <div>
-    
+      
     </div>
   )
 }
 
-export default App
+export default Adress
